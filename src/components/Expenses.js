@@ -1,18 +1,13 @@
 import ExpenseItem from "./ExpenseItem";
 import './Expenses.css';
 
-function Expenses(){
-    const expenses=[
-        {title:"Araba fiyatları",price:180,date:new Date(2021,6,1)},
-        {title:"Ev fiyatları",price:310,date:new Date(2021,7,1)},
-        {title:"At fiyatları",price:294.64,date:new Date(2021,8,1)},
-        {title:"Telefon fiyatları",price:13,date:new Date(2021,9,1)},
-    ];
+function Expenses(props){
+
     return <div className="expenses">
-        <ExpenseItem data={expenses[0]}/>
-        <ExpenseItem data={expenses[1]}/>
-        <ExpenseItem data={expenses[2]}/>
-        <ExpenseItem data={expenses[3]}/>
+        <ExpenseItem data={props.data[0]}/>
+        <ExpenseItem data={props.data[1]}/>
+        <ExpenseItem data={props.data[2]}/>
+        <ExpenseItem data={props.data[3]}/>
     </div>
 }
 
