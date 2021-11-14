@@ -8,7 +8,6 @@ function App() {
     ];
   return (
     <div>
-      <h2> Lets get Started!</h2>
        <Expenses data={expenses}/>
     </div>
   );
