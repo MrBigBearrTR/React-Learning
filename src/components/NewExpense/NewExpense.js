@@ -5,7 +5,7 @@ import "./NewExpense.css"
 
 const NewExpense=(props)=>{
 
-    const [state,setState] = useState(1);
+    const [isEditing,setIsEditing] = useState(false);
 
     const saveExpenseDataHandler=(enteredExpenseData)=>{
         if(enteredExpenseData!==null) {
@@ -15,17 +15,13 @@ const NewExpense=(props)=>{
             };
             props.onAddExpense(expenseData);
         }
-        setState(1);
+       setIsEditing(false);
     };
-    if(state===1)
-        return (
-            <div className="new-expense">
-                <button className="new-expense button" onClick={()=>setState(2)}>Add New Expenses</button>
-            </div>
-        );
+
 
     return <div className="new-expense">
-        <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}/>
+        {!isEditing && <button className="new-expense button" onClick={()=>setIsEditing(true)}>Add New Expenses</button>}
+        {isEditing && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onCancel={()=>setIsEditing(false)}/>}
     </div>
 };
 
